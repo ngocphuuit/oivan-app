@@ -1,0 +1,16 @@
+<div class="container" *ngIf="dev">
+  <div class="form-group">
+    <h2>{{dev.firstname | uppercase}} {{dev.lastname | uppercase}} Details</h2>
+  	<div><span>id: </span>{{dev.id}}</div>
+  <div>
+    <label for="dev-firstname">Firstname: </label>
+    <input id="dev-firstname" class="form-control"  [(ngModel)]="dev.firstname" placeholder="firstname">
+  </div>
+  <div>
+    <label for="dev-lastname">Lastname: </label>
+    <input id="dev-lastname" class="form-control"  [(ngModel)]="dev.lastname" placeholder="lastname">
+  </div>
+  <button class="btn" (click)="goBack()">Back</button>
+  <button class="btn" (click)="update()">Update</button>
+</div>
+</div>

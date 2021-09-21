@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="form-group">
+		<a routerLink="/projects/new" class="btn btn-primary">
+			<span class="badge">Create new project</span>
+		</a>
+	</div>
+
+
+<div class="row">
+<div class="card" style="width: 18rem;" *ngFor="let project of projects">
+  <div class="card-body">
+    <h2 class="card-title">{{project.name}}</h2>
+    <p class="card-text">{{project.description}}</p>
+    <p class="card-text">Start date: {{project.start_date}}</p>
+    <p class="card-text">End date: {{project.end_date}}</p>
+    <h3 class="card-title">Developers</h3>
+	<p class="card-text" *ngFor="let developer of project.developers">{{developer.firstname}} {{developer.lastname}}</p>
+    <h3 class="card-title">Technologies</h3>
+	<p class="card-text" *ngFor="let tech of project.technologies">{{tech.name}}</p>
+    <a class="card-link btn btn-primary" routerLink="/projects/{{project.id}}">
+        Detail
+	</a>
+	<button class="btn btn-danger" title="delete project"
+      (click)="delete(project)">delete project</button>
+  </div>
+</div>
+</div>
+</div>
+

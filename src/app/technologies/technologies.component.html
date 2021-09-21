@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="form-group">
+		<a routerLink="/technologies/new" class="btn btn-primary">
+			<span class="badge">Create new technology</span>
+		</a>
+	</div>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let tech of techs">
+  	<a routerLink="/technologies/{{tech.id}}">
+        <span class="badge">{{tech.id}}</span> {{tech.name}}
+	</a>
+	<button class="delete" title="delete technology"
+      (click)="delete(tech)">x</button>
+   </li>
+</ul>
+</div>

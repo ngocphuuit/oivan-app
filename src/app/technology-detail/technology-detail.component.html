@@ -1,0 +1,12 @@
+<div class="container" *ngIf="tech">
+  <div class="form-group">
+  <h2>{{tech.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{tech.id}}</div>
+  <div>
+    <label for="tech-name">tech name: </label>
+    <input id="tech-name" class="form-control" [(ngModel)]="tech.name" placeholder="name">
+  </div>
+  <button class="btn" (click)="goBack()">Back</button>
+  <button class="btn" (click)="update()">Update</button>
+</div>
+</div>

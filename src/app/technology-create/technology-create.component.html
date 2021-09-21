@@ -1,0 +1,11 @@
+<div class="container" >
+	<div class="form-group">
+  <label for="new-tech">Technology name: </label>
+  <input id="new-tech"  class="form-control"  #techName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button class="btn" (click)="add(techName.value)">
+    Create Technology
+  </button>
+  </div>
+</div>

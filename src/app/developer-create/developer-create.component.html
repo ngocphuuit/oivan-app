@@ -1,0 +1,42 @@
+<div  class="container" >
+<form class="form" [formGroup]="developerForm" (ngSubmit)="onSubmit()">
+	<div class="form-group">
+    	<label for="firstname">
+      		Firstname
+    	</label>
+    	<input id="firsname" class="form-control" type="text" formControlName="firstname">
+    	<div>
+	    	<span class="text-danger" *ngIf="(developerFormControl.firstname.touched || isSubmitted) && developerFormControl.firstname.errors?.required">
+	            firstname is required
+	        </span>
+	    </div>
+  	</div>
+
+  	<div class="form-group">
+    	<label for="lastname">
+      		Lastname
+    	</label>
+    	<input id="lastname" class="form-control" type="text" formControlName="lastname">
+    	<div>
+	    	<span class="text-danger" *ngIf="(developerFormControl.lastname.touched || isSubmitted) && developerFormControl.lastname.errors?.required">
+	            lastname is required
+	        </span>
+	    </div>
+  	</div>
+  	<div class="form-group">
+	  	<select multiple class="form-control" formControlName="project_ids">
+	      	<option value="">Choose project</option>
+	      	<option *ngFor="let pro of projects" [ngValue]="pro.id" (change)="changeProject($event)">{{pro.name}}
+	      	</option>
+	   </select>
+	   <div>
+	    	<span class="text-danger" *ngIf="(developerFormControl.project_ids.touched || isSubmitted) && developerFormControl.project_ids.errors?.required">
+	            Project is required
+	        </span>
+	    </div>
+	</div>
+    <div class="form-group">
+  		<button class="btn btn-success" type="submit">Create Developer</button>
+  	</div>
+</form>
+</div>

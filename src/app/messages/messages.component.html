@@ -1,0 +1,9 @@
+<div *ngIf="messageService.messages.length">
+  	<div class="alert alert-primary alert-dismissible fade show" role="alert">
+	  {{messageService.messages}}
+	  <button type="button" class="close float-right" data-dismiss="alert" aria-label="Close" (click)="messageService.clear()">
+	    <span aria-hidden="true">&times;</span>
+	  </button>
+	</div>
+
+</div>

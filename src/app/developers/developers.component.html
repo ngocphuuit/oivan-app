@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="form-group">
+		<a routerLink="/developers/new" class="btn btn-primary">
+			<span class="badge">Create new developer</span>
+		</a>
+	</div>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let dev of devs">
+  	<a routerLink="/developers/{{dev.id}}">
+        <span class="badge">{{dev.id}}</span> {{dev.firstname}} {{dev.lastname}}
+	</a>
+	<button class="delete" title="delete developer"
+      (click)="delete(dev)">x</button>
+   </li>
+</ul>
+</div>

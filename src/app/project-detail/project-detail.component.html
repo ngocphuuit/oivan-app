@@ -1,0 +1,83 @@
+<div  class="container" >
+<form  class="form" [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+	<div>
+    	<label for="name">
+      		Name
+    	</label>
+    	<input id="name" class="form-control" type="text" formControlName="name">
+    	<div>
+	    	<span class="text-danger" *ngIf="(projectFormControl.name.touched || isSubmitted) && projectFormControl.name.errors?.required">
+	            Name is required
+	        </span>
+	    </div>
+  	</div>
+
+  	<div>
+    	<label for="description">
+      		Description
+    	</label>
+    	<textarea  id="description" class="form-control" formControlName="description"></textarea>
+    	<div>
+	    	<span class="text-danger" *ngIf="(projectFormControl.description.touched || isSubmitted) && projectFormControl.description.errors?.required">
+	            Description is required
+	        </span>
+	    </div>
+  	</div>
+
+  	<div>
+    	<label for="start_date">
+      		Start date
+    	</label>
+    	<div class="col-xs-12 col-12 col-md-4 form-group">
+	        <input type="text"
+	        	id="start_date" 
+	            class="form-control disabled"
+	            formControlName="start_date"
+	            placeholder="Datepicker"
+	            bsDatepicker>
+	      </div>
+    	<div>
+	    	<span class="text-danger" *ngIf="(projectFormControl.start_date.touched || isSubmitted) && projectFormControl.start_date.errors?.required">
+	            start_date is required
+	        </span>
+	    </div>
+  	</div>
+
+  	<div>
+    	<label for="end_date">
+      		End date
+    	</label>
+    	<div class="col-xs-12 col-12 col-md-4 form-group">
+	    	<input type="text"
+		        	id="end_date" 
+		            class="form-control"
+		            formControlName="end_date"
+		            placeholder="Datepicker"
+		            bsDatepicker>
+		      </div>
+	  	</div>
+
+  	<div>
+  		<label for="developer">
+      		Developer
+    	</label>
+	  	<select multiple id="developer" class="form-control" formControlName="developer_ids">
+	      	<option value="">Choose developer</option>
+	      	<option *ngFor="let dev of devs" [ngValue]="dev.id" (change)="changeDeveloper($event)">{{dev.firstname}} {{dev.lastname}}
+	      	</option>
+	    </select>
+	</div>
+	<div>
+		<label for="technology">
+      		Technology
+    	</label>
+	    <select multiple id="technology" class="form-control" formControlName="technology_ids">
+	      	<option value="">Choose technology</option>
+	      	<option *ngFor="let tech of techs" [ngValue]="tech.id" (change)="changeTechnology($event)">{{tech.name}}
+	      	</option>
+	    </select>
+	</div>
+
+  <button class="btn btn-success" type="submit">Update Project</button>
+</form>
+</div>
